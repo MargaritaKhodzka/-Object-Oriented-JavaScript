@@ -15,18 +15,37 @@ class Pet {
       return 'sleeping';
     }
   }
-
-  get owner() {
-    return this._owner;
-  }
-
-  set owner(owner) {
-    this._owner = owner;
-    console.log(`setter called: ${owner}`);
-  }
+  // 
+  // get owner() {
+  //   return this._owner;
+  // }
+  //
+  // set owner(owner) {
+  //   this._owner = owner;
+  //   console.log(`setter called: ${owner}`);
+  // }
 
   speak() {
     console.log(this.sound);
+  }
+}
+
+class Owner {
+  constructor (name, address) {
+    this.name = name;
+    this.address = address;
+  }
+
+  set phone(phone) {
+    /* string method replace takes in 2 params:
+      what replacing: identify all non-numeric chars,
+      with: empty string */
+    const phoneNumber = phone.replace(/[^0-9]/g, '');
+    this._phone = phoneNumber;
+  }
+
+  get phone() {
+    return this._phone;
   }
 }
 
@@ -40,5 +59,8 @@ const edel = new Pet('dog', 7, 'German Shorthaired Pointer');
 // console.log(ernie.activity);
 // console.log(ernie);
 
-ernie.owner = 'Ashley';
+ernie.owner = new Owner('Ashley', '123 Main Street');
+ernie.owner.phone = '(555) 555-5555';
 console.log(ernie.owner);
+console.log(ernie.owner.name);
+console.log(ernie.owner.phone);
