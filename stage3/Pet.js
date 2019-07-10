@@ -16,6 +16,15 @@ class Pet {
     }
   }
 
+  get owner() {
+    return this._owner;
+  }
+
+  set owner(owner) {
+    this._owner = owner;
+    console.log(`setter called: ${owner}`);
+  }
+
   speak() {
     console.log(this.sound);
   }
@@ -28,5 +37,8 @@ const edel = new Pet('dog', 7, 'German Shorthaired Pointer');
 
 // ernie.speak();
 // vera.speak();
-console.log(ernie.activity);
-console.log(ernie);
+// console.log(ernie.activity);
+// console.log(ernie);
+
+ernie.owner = 'Ashley';
+console.log(ernie.owner);
